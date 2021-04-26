@@ -11,7 +11,12 @@ minilab_bp = Blueprint('minilab',  __name__,
 
 @minilab_bp.route('/')
 def minilab():
-    return ("P4-Walruses Minilabs")
+    return render_template("base.html")
+
+@minilab_bp.route('/test')
+def test():
+    return "<h1>Grace Test</h1>"
+
 
 @minilab_bp.route('/ridhima', methods=["GET", "POST"])
 def ridhima():
@@ -38,7 +43,7 @@ def iniyaa():
     return render_template("/minilab/iniyaa.html", lucas= lucas(2))
 
 
-@minilab_bp.route('/grace' , methods=['GET', 'POST'])
+@minilab_bp.route('/addition' , methods=['GET', 'POST'])
 def grace():
     if request.form:
         return render_template("/minilab/grace-minilab.html", addition = Addition (int(request.form.get("series"))))

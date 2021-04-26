@@ -1,4 +1,3 @@
-
 class Addition:
 
     def __init__(self, series):
