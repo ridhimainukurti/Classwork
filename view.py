@@ -1,6 +1,7 @@
 # https://flask.palletsprojects.com/en/1.1.x/api/
 from flask import Flask, render_template
 from minilab.app import minilab_bp
+from minilab.isai import Factorial
 
 #create a Flask instance
 app = Flask(__name__)
@@ -13,7 +14,13 @@ app.register_blueprint(minilab_bp, url_prefix='/minilab')
 @app.route('/home')
 def home():
     #function use Flask import (Jinja) to render an HTML template
-    return render_template("home.html")
+    return render_template("base.html")
+
+@minilab_bp.route('/isai', methods=["GET", "POST"])
+def isai():
+    if request.form:
+        return render_template("minilab/isai.html", factorial=Factorial(int(request.form.get("series"))))
+    return render_template("minilab/isai.html", factorial=Factorial(2))
 
 
 
