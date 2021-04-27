@@ -16,9 +16,9 @@
             <div class="col-md-6">
                 <h3>Type in any number between 1 - 10</h3>
                 <form id="fibForm" action="/minilab/addition" method="POST" >
-                    <input name="series" id="series" type="number" min="2" max="100" >
+                    <input name="series" id="series" type="number" min="1" max="100" >
                     <button>Go!</button>
-                </form>
+
             </div>
 
             <div class="col-md-6">
@@ -42,7 +42,12 @@
             <!-- Series -->
             <h3>Addition build up for series: {{addition.series}} number: {{addition.number}}</h3>
             <div class="overflow-auto" style="height: 200px">
+                <!--
                 {% for i in range(addition.series) %}
+                <h5>{{addition.get_sequence(i)}}</h5>
+                {% endfor %}
+                -->
+                {% for i in range(7) %}
                 <h5>{{addition.get_sequence(i)}}</h5>
                 {% endfor %}
             </div>
