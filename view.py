@@ -4,6 +4,8 @@ import minilab.app
 from minilab.isai import Factorial
 
 #create a Flask instance
+from minilab.ridhima_bubblesort import RidhimaBubblesort
+
 app = Flask(__name__)
 import minilab.bubblesort
 app.register_blueprint(minilab.app.minilab_bp, url_prefix='/minilab')
@@ -15,6 +17,15 @@ def ridhima():
     #function use Flask import (Jinja) to render an HTML template
     #   return render_template("/minilab/ridhima.html")
     return render_template("/minilab/ridhima.html")
+
+
+@app.route('/ridhima_bubblesort', methods=["GET", "POST"])
+def ridhimabubblesprt():
+    if request.form:
+        return render_template("/minilab/ridhima_bubblesort.html", bubblesort=RidhimaBubblesort(request.form.get("inputlist")))
+    return render_template("/minilab/ridhima_bubblesort.html", bubblesort=RidhimaBubblesort(""))
+
+
 
 #connects default URL of server to a python function
 @app.route('/')

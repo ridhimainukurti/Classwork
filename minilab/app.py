@@ -2,7 +2,7 @@ from flask import Blueprint, render_template, request
 from minilab.ridhima import Exponential
 from minilab.isai import Factorial
 from minilab.grace import Addition
-from minilab.iniyaa import lucas
+# from minilab.iniyaa import lucas
 from minilab.gracebubble import bubblesorting
 
 

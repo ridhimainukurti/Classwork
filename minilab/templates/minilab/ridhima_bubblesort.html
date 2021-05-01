@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+{% extends "base.html" %}
+
+{% block content %}
+<div class="container">
+
+        <div class="col-12" style="text-align: center; ">
+            <h1><strong>BubbleSort</strong></h1>
+        </div>
+
+        <div class="jumbotron text-center row">
+            <div class="col-10">
+                <h3>Enter a list of numbers, characters, or words seperated by column </h3>
+                <form id="bubblesortform" action="/ridhima_bubblesort" method="POST" >
+                    <input name="inputlist" id="inputlist" type="number, character, string">
+                    <button>Sort</button>
+                    <h4>Sorted List Output</h4>
+                    <h2>{{bubblesort.get_sorted_list}}</h2>
+                </form>
+
+            </div>
+        </div>
+
+    </div>
+</div>
+<style>
+    table, td, th {
+        border: 1px solid var(--dblue);
+    }
+    td, th {
+        text-align:left;
+    }
+</style>
+
+{% endblock %}
+
+
