@@ -50,8 +50,8 @@ def grace():
         return render_template("/minilab/grace-minilab.html", addition = Addition (int(request.form.get("series"))))
     return render_template("/minilab/grace-minilab.html", addition= Addition(2))
 
-@minilab_bp.route('/testing' , methods=['GET', 'POST'])
-def testingminilab():
+@minilab_bp.route('/gracebubble' , methods=['GET', 'POST'])
+def bubblesorting():
     g = 0
     list = ""
     if request.method == 'POST':
@@ -59,5 +59,5 @@ def testingminilab():
         k = bubblesorting
         g = k.g_original(value)
         list = k.bubbleSort(value)
-    return render_template("/minilab/testpage.html", g=g, list=list)
-    #return render_template("/minilab/testpage.html")
+    return render_template("/minilab/gracebubblesort.html", g=g, list=list)
+    #return render_template("/minilab/gracebubblesort.html")
