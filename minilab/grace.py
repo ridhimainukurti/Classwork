@@ -1,5 +1,4 @@
 class Addition:
-
     def __init__(self, series):
         if series < 0 or series > 10:
             raise ValueError("Series must be between 1-10")
@@ -7,13 +6,12 @@ class Addition:
         self._list = []
         self._dict = {}
         self._dictID = 0
-
         self.additionseries()
 
 
     """Algorithm for building Fibonacci sequence, this id called from __init__"""
     def additionseries(self):
-        limit = 7
+        limit = 10
         usrinput = self._series
         addition = 0
         for i in range(0,limit):

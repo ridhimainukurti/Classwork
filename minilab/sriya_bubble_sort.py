@@ -4,12 +4,16 @@ class BubbleSort:
 
     def __init__(self, series):
         """Built in validation and exception"""
-        self.list = series
+        self.set_data(series)
         # Duration timeElapsed;
         # Instant start = Instant.now();  // time capture -- start
         self.sorting()
         # Instant end = Instant.now();    // time capture -- end
         # this.timeElapsed = Duration.between(start, end);
+        # self.get_list()
+
+    def set_data(self, series):
+        self.list = list(series.split(","))
 
 # Algorithm for building bubble sort, this id called from __init__"""
     def sorting(self):
@@ -23,41 +27,23 @@ class BubbleSort:
 
     def get_list (self):
         print ("Sorted array is:")
-        for i in range(len(list)):
+        for i in range(len(self.list)):
             print(list[i]),
 
-
-    def set_data(self, num):
-        self._value = num
-
-    """Getters with decorator to allow . notation access"""
-    @property
-    def series(self):
-        return self._series
-
-    @property
-    def value(self):
-        return self._value
-
-    @property
-    def number(self):
-        return self._value
-
-    """Traditional Getter requires method access"""
-    def get_sequence(self, nth):
-        return self._dict[nth]
 
 
 # Tester Code
 if __name__ == "__main__":
     '''Value for testing'''
-    # list = [17, 13, 6, 2, 18, 8]
-    inputted_list = input('enter a list of numbers, characters, or words seperated by commas: ')
-    list = inputted_list.split(',')
+    series = "17, 13, 6, 2, 18, 8"
+    #inputted_list = input('enter a list of numbers, characters, or words seperated by commas: ')
+    #list = inputted_list.split(',')
 
     '''Constructor of Class object'''
-    my_sort = BubbleSort(list)
+    my_sort = BubbleSort(series)
     # b_sort(list)
 
     '''Using getters to obtain data from object'''
-    my_sort.get_list()
+    # my_sort.get_list()
+    print("BubbleSort number for {list} = {}",my_sort.list)
+
