@@ -4,7 +4,7 @@ from minilab.isai import Factorial
 from minilab.grace import Addition
 from minilab.iniyaabubblesort import Bubblesort
 from minilab.gracebubble import bubblesorting
-
+from minilab.sriya_bubble_sort import BubbleSort
 
 minilab_bp = Blueprint('minilab',  __name__,
                        template_folder='templates',
@@ -43,6 +43,11 @@ def iniyaa():
         return render_template("/minilab/iniyaa.html", lucas = Bubblesort (int(request.form.get("series"))))
     return render_template("/minilab/iniyaa.html", lucas= Bubblesort(2))
 
+@minilab_bp.route('/sriya_bubble_sort', methods=["GET", "POST"])
+def sriya_bubble():
+    if request.form:
+        return render_template("/minilab/sriya_bubble_sort.html", my_sort = BubbleSort(request.form.get("series")))
+    return render_template("/minilab/sriya_bubble_sort.html", my_sort = BubbleSort("4,3,5"))
 
 @minilab_bp.route('/addition' , methods=['GET', 'POST'])
 def grace():
