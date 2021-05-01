@@ -2,7 +2,7 @@ from flask import Blueprint, render_template, request
 from minilab.ridhima import Exponential
 from minilab.isai import Factorial
 from minilab.grace import Addition
-from minilab.iniyaa import lucas
+from minilab.iniyaabubblesort import Bubblesort
 from minilab.gracebubble import bubblesorting
 
 
@@ -40,8 +40,8 @@ def isai():
 @minilab_bp.route('/iniyaa', methods=["GET", "POST"])
 def iniyaa():
     if request.form:
-        return render_template("/minilab/iniyaa.html", lucas = lucas (int(request.form.get("series"))))
-    return render_template("/minilab/iniyaa.html", lucas= lucas(2))
+        return render_template("/minilab/iniyaa.html", lucas = Bubblesort (int(request.form.get("series"))))
+    return render_template("/minilab/iniyaa.html", lucas= Bubblesort(2))
 
 
 @minilab_bp.route('/addition' , methods=['GET', 'POST'])

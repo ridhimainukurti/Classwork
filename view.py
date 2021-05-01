@@ -37,7 +37,6 @@ def sriya():
 
 @app.route('/bubblesort/', methods=['POST','GET'])
 def bubblesort():
-    print("hello")
     in_type = request.form.get("input_type", False)
     first = request.form.get("series1", False)
     second= request.form.get("series2", False)
