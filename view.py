@@ -50,16 +50,14 @@ def bubblesort():
     ninth= request.form.get("series9", False)
     tenth= request.form.get("series10", False)
 
-    print('Input type',in_type)
+
     oglist= [first,second,third,fourth,fifth,sixth,seventh,eighth,ninth,tenth]
     if in_type == 'Number':
         input_lst=[int(first), int(second), int(third),int(fourth),int(fifth), int(sixth), int(seventh),int(eighth), int(ninth), int(tenth)]
     else:
         input_lst=[first, second, third,fourth,fifth, sixth, seventh,eighth, ninth, tenth]
 
-    print ('My Input list:', input_lst)
     minilab.bubblesort.bubsort (input_lst)
-    print ('My Sorted list:', input_lst)
 
     return render_template("/minilab/bubblesort.html", slist=input_lst, olist=oglist)
 
