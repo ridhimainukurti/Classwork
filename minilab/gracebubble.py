@@ -1,6 +1,3 @@
-import sys
-import numpy as np
-
 class bubblesorting:
     def __init__(self):
         self._lst=[]
