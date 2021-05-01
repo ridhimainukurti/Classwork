@@ -1,9 +1,10 @@
 from flask import Blueprint, render_template, request
 from minilab.ridhima import Exponential
-from minilab.sriya import Factorial
 from minilab.isai import Factorial
 from minilab.grace import Addition
-from minilab.sriya_bubble_sort import BubbleSort
+from minilab.iniyaa import lucas
+from minilab.gracebubble import bubblesorting
+
 
 minilab_bp = Blueprint('minilab',  __name__,
                        template_folder='templates',
@@ -49,9 +50,14 @@ def grace():
         return render_template("/minilab/grace-minilab.html", addition = Addition (int(request.form.get("series"))))
     return render_template("/minilab/grace-minilab.html", addition= Addition(2))
 
-@minilab_bp.route('/sriya_bubble_sort', methods=["GET", "POST"])
-def sriya_bubble():
-    if request.form:
-        return render_template("/minilab/sriya_bubble_sort.html", my_sort = BubbleSort(request.form.get("series")))
-    return render_template("/minilab/sriya_bubble_sort.html", my_sort = BubbleSort("4,3,5"))
-
+@minilab_bp.route('/testing' , methods=['GET', 'POST'])
+def testingminilab():
+    g = 0
+    list = ""
+    if request.method == 'POST':
+        value = request.form['list']
+        k = bubblesorting
+        g = k.g_original(value)
+        list = k.bubbleSort(value)
+    return render_template("/minilab/testpage.html", g=g, list=list)
+    #return render_template("/minilab/testpage.html")
