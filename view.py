@@ -4,6 +4,8 @@ import minilab.app
 from minilab.isai import Factorial
 
 #create a Flask instance
+from minilab.ridhima_bubblesort import RidhimaBubblesort
+
 app = Flask(__name__)
 import minilab.bubblesort
 app.register_blueprint(minilab.app.minilab_bp, url_prefix='/minilab')
@@ -15,6 +17,15 @@ def ridhima():
     #function use Flask import (Jinja) to render an HTML template
     #   return render_template("/minilab/ridhima.html")
     return render_template("/minilab/ridhima.html")
+
+
+@app.route('/ridhima_bubblesort', methods=["GET", "POST"])
+def ridhimabubblesprt():
+    if request.form:
+        return render_template("/minilab/ridhima_bubblesort.html", bubblesort=RidhimaBubblesort(request.form.get("inputlist")))
+    return render_template("/minilab/ridhima_bubblesort.html", bubblesort=RidhimaBubblesort(""))
+
+
 
 #connects default URL of server to a python function
 @app.route('/')
@@ -37,7 +48,6 @@ def sriya():
 
 @app.route('/bubblesort/', methods=['POST','GET'])
 def bubblesort():
-    print("hello")
     in_type = request.form.get("input_type", False)
     first = request.form.get("series1", False)
     second= request.form.get("series2", False)
@@ -50,16 +60,14 @@ def bubblesort():
     ninth= request.form.get("series9", False)
     tenth= request.form.get("series10", False)
 
-    print('Input type',in_type)
+
     oglist= [first,second,third,fourth,fifth,sixth,seventh,eighth,ninth,tenth]
     if in_type == 'Number':
         input_lst=[int(first), int(second), int(third),int(fourth),int(fifth), int(sixth), int(seventh),int(eighth), int(ninth), int(tenth)]
     else:
         input_lst=[first, second, third,fourth,fifth, sixth, seventh,eighth, ninth, tenth]
 
-    print ('My Input list:', input_lst)
     minilab.bubblesort.bubsort (input_lst)
-    print ('My Sorted list:', input_lst)
 
     return render_template("/minilab/bubblesort.html", slist=input_lst, olist=oglist)
 
