@@ -2,7 +2,7 @@ from flask import Blueprint, render_template, request
 from minilab.ridhima import Exponential
 from minilab.isai import Factorial
 from minilab.grace import Addition
-from minilab.iniyaa import lucas
+from minilab.iniyaabubblesort import Bubblesort
 from minilab.gracebubble import bubblesorting
 
 
@@ -59,5 +59,5 @@ def testingminilab():
         k = bubblesorting
         g = k.g_original(value)
         list = k.bubbleSort(value)
-    return render_template("/minilab/testpage.html", g=g, list=list)
+    return render_template("/minilab/gracebubblesort.html", g=g, list=list)
     #return render_template("/minilab/testpage.html")
