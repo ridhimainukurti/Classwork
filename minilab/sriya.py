@@ -46,7 +46,7 @@ class Factorial:
 # Tester Code
 if __name__ == "__main__":
     '''Value for testing'''
-    n = 6
+    n = 5
     '''Constructor of Class object'''
     factorial = Factorial(n)
 
