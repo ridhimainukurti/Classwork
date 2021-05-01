@@ -3,7 +3,6 @@ from minilab.ridhima import Exponential
 from minilab.sriya import Factorial
 from minilab.isai import Factorial
 from minilab.grace import Addition
-from minilab.iniyaa import lucas
 from minilab.sriya_bubble_sort import BubbleSort
 
 minilab_bp = Blueprint('minilab',  __name__,
