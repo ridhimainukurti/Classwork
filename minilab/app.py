@@ -52,6 +52,6 @@ def grace():
 @minilab_bp.route('/sriya_bubble_sort', methods=["GET", "POST"])
 def sriya_bubble():
     if request.form:
-        return render_template("/minilab/sriya_bubble_sort.html", my_sort = BubbleSort(int(request.form.get("list"))))
-    return render_template("/minilab/sriya_bubble_sort.html", my_sort = BubbleSort(2))
+        return render_template("/minilab/sriya_bubble_sort.html", my_sort = BubbleSort(request.form.get("series")))
+    return render_template("/minilab/sriya_bubble_sort.html", my_sort = BubbleSort("4,3,5"))
 
