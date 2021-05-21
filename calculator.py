@@ -30,4 +30,21 @@ print("Division")
 while True:
     choice = input("enter the number that corresponds with the operation you want the calculator to perform")
 
-    if choice in ('1',)
+    if choice in ('1','2','3','4'):
+        firstnum = float(input("Type the first number"))
+        secondnum = float(input("Type the second number"))
+
+        if choice == '1':
+            print("sum = ", addition(firstnum, secondnum))
+
+        elif choice == '2':
+            print("difference = ", subtraction(firstnum, secondnum))
+
+        elif choice == '3':
+            print("ptoduct = ", multiplication(firstnum, secondnum))
+
+        elif choice == '3':
+            print("quotient = ", division(firstnum, secondnum))
+    else:
+        print("Please enter 1,2,3, or 4 for the operation you want the calculator ot perform")
+
